@@ -9,10 +9,10 @@ all: ${FULL_LIB_NAME}
 ${FULL_LIB_NAME}: ${FULL_LIB_NAME}.so
 
 ${FULL_LIB_NAME}.so: ${SOURCE_FILES_PREFIX}
-	gcc -shared -o $@ $^.o ${LINKED_LIBRARIES}
+	gcc -E -shared -o $@ $^.o ${LINKED_LIBRARIES}
 
 ${SOURCE_FILES_PREFIX}: ${SOURCE_FILES_PREFIX}.c ${SOURCE_FILES_PREFIX}.h
-	gcc -I. ${SOURCE_FLAGS} -c $<
+	gcc -E -I. ${SOURCE_FLAGS} -c $<
 
 clean:
 	rm -f ${FULL_LIB_NAME}.so
