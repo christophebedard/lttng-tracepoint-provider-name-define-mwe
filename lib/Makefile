@@ -14,6 +14,9 @@ ${FULL_LIB_NAME}.so: ${SOURCE_FILES_PREFIX}
 ${SOURCE_FILES_PREFIX}: ${SOURCE_FILES_PREFIX}.c ${SOURCE_FILES_PREFIX}.h
 	gcc -I. ${SOURCE_FLAGS} -c $<
 
+preprocessor_output: ${SOURCE_FILES_PREFIX}.c ${SOURCE_FILES_PREFIX}.h
+	gcc -I. ${SOURCE_FLAGS} -c $< -E > $@
+
 clean:
 	rm -f ${FULL_LIB_NAME}.so
 	rm -f ${SOURCE_FILES_PREFIX}.o
