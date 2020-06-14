@@ -19,30 +19,8 @@
 
 // Does not work
 
-// TRACEPOINT_EVENT_CLASS(
-//   TRACEPOINT_PROVIDER,
-//   my_class,
-//   TP_ARGS(
-//     const void *, some_arg
-//   ),
-//   TP_FIELDS(
-//     ctf_integer_hex(const void *, whatever, some_arg)
-//   )
-// )
-
-// TRACEPOINT_EVENT_INSTANCE(
-//   TRACEPOINT_PROVIDER,
-//   my_class,
-//   my_tracepoint_does_not_work,
-//   TP_ARGS(
-//     const void *, some_arg
-//   )
-// )
-
-// Works
-
 TRACEPOINT_EVENT_CLASS(
-  my_provider,
+  TRACEPOINT_PROVIDER,
   my_class,
   TP_ARGS(
     const void *, some_arg
@@ -53,13 +31,35 @@ TRACEPOINT_EVENT_CLASS(
 )
 
 TRACEPOINT_EVENT_INSTANCE(
-  my_provider,
+  TRACEPOINT_PROVIDER,
   my_class,
-  my_tracepoint_works,
+  my_tracepoint_does_not_work,
   TP_ARGS(
     const void *, some_arg
   )
 )
+
+// Works
+
+// TRACEPOINT_EVENT_CLASS(
+//   my_provider,
+//   my_class,
+//   TP_ARGS(
+//     const void *, some_arg
+//   ),
+//   TP_FIELDS(
+//     ctf_integer_hex(const void *, whatever, some_arg)
+//   )
+// )
+
+// TRACEPOINT_EVENT_INSTANCE(
+//   my_provider,
+//   my_class,
+//   my_tracepoint_works,
+//   TP_ARGS(
+//     const void *, some_arg
+//   )
+// )
 
 #endif  // _MYTP__TP_H_
 
