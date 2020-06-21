@@ -23,10 +23,12 @@ TRACEPOINT_EVENT_CLASS(
   TRACEPOINT_PROVIDER,
   my_class,
   TP_ARGS(
-    const void *, some_arg
+    const void *, some_arg,
+    int, some_number
   ),
   TP_FIELDS(
     ctf_integer_hex(const void *, whatever, some_arg)
+    ctf_integer(int, number, some_number)
   )
 )
 
@@ -35,7 +37,8 @@ TRACEPOINT_EVENT_INSTANCE(
   my_class,
   my_tracepoint_does_not_work,
   TP_ARGS(
-    const void *, some_arg
+    const void *, some_arg,
+    int, some_number
   )
 )
 
@@ -45,10 +48,12 @@ TRACEPOINT_EVENT_INSTANCE(
 //   my_provider,
 //   my_class,
 //   TP_ARGS(
-//     const void *, some_arg
+//     const void *, some_arg,
+//     int, some_number
 //   ),
 //   TP_FIELDS(
 //     ctf_integer_hex(const void *, whatever, some_arg)
+//     ctf_integer(int, number, some_number)
 //   )
 // )
 
@@ -57,7 +62,8 @@ TRACEPOINT_EVENT_INSTANCE(
 //   my_class,
 //   my_tracepoint_works,
 //   TP_ARGS(
-//     const void *, some_arg
+//     const void *, some_arg,
+//     int, some_number
 //   )
 // )
 
