@@ -65,7 +65,4 @@ TRACEPOINT_EVENT_INSTANCE(
 
 #include <lttng/tracepoint-event.h>
 
-#define TRACEPOINT(...) \
-  tracepoint(TRACEPOINT_PROVIDER, __VA_ARGS__)
-
 #endif  // MYTP__TP_H_
