@@ -2,6 +2,8 @@
 
 Minimal working example (MWE) reproducing a `lttng-ust` bug: cannot use a `#define`d `TRACEPOINT_PROVIDER` name with `TRACEPOINT_EVENT_{CLASS,INSTANCE}()` macros
 
+**Update**: this bug was fixed: https://review.lttng.org/c/lttng-ust/+/3640
+
 ## How to reproduce
 
 Install:
